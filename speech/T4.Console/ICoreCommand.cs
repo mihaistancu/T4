@@ -4,6 +4,6 @@ namespace T4.Console
 {
     public interface ICoreCommand
     {
-        IEnumerable<string> Execute();
+        void Execute();
     }
 }

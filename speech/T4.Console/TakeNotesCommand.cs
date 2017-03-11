@@ -20,11 +20,9 @@ namespace T4.Console
             this.input = input;
         }
 
-        public IEnumerable<string> Execute()
+        public void Execute()
         {
             Save();
-
-            return new List<string> { input };
         }
 
         private void Save()

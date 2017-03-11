@@ -11,7 +11,7 @@ namespace T4.Business.Application
 {
     public static class GoogleTranslateService
     {
-        public static string Translate(string text, string targetLanguage)
+        public static string Translate(string text, string sourceLanguage)
         {
             var key = GetApiKey();
             var service = new TranslateService(new BaseClientService.Initializer
@@ -19,7 +19,9 @@ namespace T4.Business.Application
                 ApiKey = key
             });
             var srcText = new[] { text };
-            var request = service.Translations.List(srcText, targetLanguage);
+            
+            var request = service.Translations.List(srcText, "en");
+            request.Source = sourceLanguage;
             var response = request.Execute();
             var translations = response.Translations.Select(translation => translation.TranslatedText).ToList();
             var output = translations.FirstOrDefault();

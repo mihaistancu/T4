@@ -30,8 +30,19 @@ namespace T4.Business.Models.Commands
             return _subCommands;
         }
 
+
+       
+
         public string GetIntent()
         {
+            IList<string> response = new List<string>();
+            foreach (var item in GetSubCommands())
+            {
+
+                response = item.Execute(response);
+
+
+            }
             return _intent;
         }
     }

@@ -1,32 +1,42 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using T4.Business.Application;
+using T4.Business.Constants;
 using T4.Business.Models.Interfaces;
 
 namespace T4.Business.Models.Commands
 {
     public class TranslateCommand : ICoreCommand
     {
-        private string _targetLanguage = "";
+        private string _sourceLanguage = "";
         private string _text = "";
         public void SetParameters(IList<string> parameters)
         {
-            _targetLanguage = parameters.ElementAt(0);
-            _text = parameters.ElementAt(1);
+            _sourceLanguage = parameters.ElementAtOrDefault(0);
+            _text = parameters.ElementAtOrDefault(1);
         }
 
         public void Validate(IList<string> parameters)
         {
-
+            if (_sourceLanguage == null)
+            {
+                SpeechSynthesisService.Speak("From what language do you want me to translate");
+                var lang = SpeechRecognitionService.Listen();
+                _sourceLanguage = Languages.GetLanguage(lang);
+            }
+            if (_text == null)
+            {
+                SpeechSynthesisService.Speak("What do you want me to translate");
+                _text = SpeechRecognitionService.Listen();
+            }
         }
 
-        public async Task<IList<string>> Execute(IList<string> parameters)
+        public IList<string> Execute(IList<string> parameters)
         {
             var result = new List<string>();
-            Validate(parameters);
             SetParameters(parameters);
-            var translatedWord = GoogleTranslateService.Translate(_text, _targetLanguage);
+            Validate(parameters);
+            var translatedWord = GoogleTranslateService.Translate(_text, _sourceLanguage);
             result.Add(translatedWord);
             return result;
         }

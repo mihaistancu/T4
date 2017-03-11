@@ -1,7 +1,10 @@
 ﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using T4.Business.Application;
+using T4.Business.Models;
 
 namespace T4.Console
 {
@@ -12,9 +15,14 @@ namespace T4.Console
         public static void Main(string[] args)
         {
             //Translate();
-            RunCommand();
+            //RunCommand();
 
-            System.Console.ReadLine();          
+            //System.Console.ReadLine();          
+            var factory = new CoreCommandFactory();
+            var command = factory.Create("translation");
+            var response = command.Execute(new List<string>());
+            System.Console.WriteLine(response.ElementAt(0));
+            System.Console.ReadLine();
         }
 
         private static void Translate()

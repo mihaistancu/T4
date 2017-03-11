@@ -73,6 +73,8 @@
     <Compile Include="Application\IntentService.cs" />
     <Compile Include="Application\SpeechRecognitionService.cs" />
     <Compile Include="Application\SpeechSynthesisService.cs" />
+    <Compile Include="Constants\Languages.cs" />
+    <Compile Include="Models\Commands\CustomCommand.cs" />
     <Compile Include="Models\Commands\NotesCommand.cs" />
     <Compile Include="Models\Commands\TranslateCommand.cs" />
     <Compile Include="Models\CoreCommandFactory.cs" />
@@ -82,7 +84,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Constants\" />
     <Folder Include="Mocks\" />
   </ItemGroup>
   <ItemGroup>

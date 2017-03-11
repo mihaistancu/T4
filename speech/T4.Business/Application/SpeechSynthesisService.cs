@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Speech.Synthesis;
 
 namespace T4.Business.Application
 {
@@ -6,7 +6,11 @@ namespace T4.Business.Application
     {
         public static void Speak(string text)
         {
-            Console.WriteLine(text);
+            using (var synth = new SpeechSynthesizer())
+            {
+                synth.SetOutputToDefaultAudioDevice();
+                synth.Speak(text);
+            }
         }
     }
 }

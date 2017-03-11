@@ -24,7 +24,7 @@ namespace GoogleCloudSamples
 {
     public class Recognize
     {
-        public static async Task<string> StreamingMicRecognizeAsync()
+        public static async Task<string> StreamingMicRecognizeAsync(string languageCode)
         {
             string result = string.Empty;
 
@@ -47,6 +47,7 @@ namespace GoogleCloudSamples
                             Encoding =
                             RecognitionConfig.Types.AudioEncoding.Linear16,
                             SampleRate = 16000,
+                            LanguageCode = languageCode
                         },
                         InterimResults = false,
                     }
@@ -85,7 +86,7 @@ namespace GoogleCloudSamples
                 };
             waveIn.StartRecording();
             Console.WriteLine("Speak now.");
-            await Task.Run(() => { manualResetEvent.WaitOne(10000); });
+            await Task.Run(() => { manualResetEvent.WaitOne(100000); });
             // Stop recording and shut down.
             waveIn.StopRecording();
             lock (writeLock) writeMore = false;
@@ -96,11 +97,11 @@ namespace GoogleCloudSamples
 
         public static void Main(string[] args)
         {
-            var result = StreamingMicRecognizeAsync().Result;
-            Console.WriteLine(result);
+        //    var result = StreamingMicRecognizeAsync().Result;
+        //    Console.WriteLine(result);
 
-            result = StreamingMicRecognizeAsync().Result;
-            Console.WriteLine(result);
+        //    result = StreamingMicRecognizeAsync().Result;
+        //    Console.WriteLine(result);
         }
     }
 }

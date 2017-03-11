@@ -18,8 +18,31 @@ namespace T4.Business.Constants
                     return "es";
                 case "romanian":
                     return "ro";
+                case "french":
+                    return "fr";
+                case "japanese":
+                    return "ja";
                 default:
                     return "en";
+            }
+        }
+
+        public static string GetListenerLanguage(string input)
+        {
+            switch (input.ToLower())
+            {
+                case "de":
+                    return "de-DE";
+                case "es":
+                    return "es-ES";
+                case "ro":
+                    return "ro-RO";
+                case "fr":
+                    return "fr-FR";
+                case "ja":
+                    return "ja-JP";
+                default:
+                    return "en-US";
             }
         }
     }

@@ -27,7 +27,7 @@ namespace T4.Business.Models.Commands
             if (string.IsNullOrEmpty(_text) && !isLearning)
             {
                 SpeechSynthesisService.Speak("What do you want me to translate");
-                _text = SpeechRecognitionService.Listen();
+                _text = SpeechRecognitionService.Listen(Languages.GetListenerLanguage(_sourceLanguage));
             }
         }
 
@@ -38,6 +38,7 @@ namespace T4.Business.Models.Commands
             Validate(parameters,false);
             var translatedWord = GoogleTranslateService.Translate(_text, _sourceLanguage);
             result.Add(_text + " = " + translatedWord);
+            _text = string.Empty;
             return result;
         }
     }

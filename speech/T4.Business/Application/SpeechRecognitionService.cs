@@ -4,7 +4,7 @@
     {
         public static string Listen()
         {
-            return string.Empty;
+            return GoogleCloudSamples.Recognize.StreamingMicRecognizeAsync().Result;
         }
     }
 }

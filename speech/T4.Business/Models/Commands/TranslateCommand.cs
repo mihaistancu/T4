@@ -1,18 +1,34 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using T4.Business.Application;
 using T4.Business.Models.Interfaces;
 
 namespace T4.Business.Models.Commands
 {
     public class TranslateCommand : ICoreCommand
     {
-        public void Validate(IList<string> parameters)
+        private string _targetLanguage = "";
+        private string _text = "";
+        public void SetParameters(IList<string> parameters)
         {
-            throw new System.NotImplementedException();
+            _targetLanguage = parameters.ElementAt(0);
+            _text = parameters.ElementAt(1);
         }
 
-        public IList<string> Execute(IList<string> parameters)
+        public void Validate(IList<string> parameters)
         {
-            throw new System.NotImplementedException();
+
+        }
+
+        public async Task<IList<string>> Execute(IList<string> parameters)
+        {
+            var result = new List<string>();
+            Validate(parameters);
+            SetParameters(parameters);
+            var translatedWord = GoogleTranslateService.Translate(_text, _targetLanguage);
+            result.Add(translatedWord);
+            return result;
         }
     }
 }

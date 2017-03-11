@@ -1,18 +1,23 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using T4.Business.Models.Interfaces;
 
 namespace T4.Business.Models.Commands
 {
     public class NotesCommand : ICoreCommand
     {
+        public void SetParameters(IList<string> parameters)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void Validate(IList<string> parameters)
         {
             throw new System.NotImplementedException();
         }
 
-        public IList<string> Execute(IList<string> parameters)
+        public Task<IList<string>> Execute(IList<string> parameters)
         {
-            Validate(parameters);
             throw new System.NotImplementedException();
         }
     }

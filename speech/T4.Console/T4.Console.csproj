@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F3F37E0F-3A39-4CBF-8A0C-51B1F72D807C}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{9A212039-87C0-4FBA-8870-865D21A32890}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>T4.Business</RootNamespace>
-    <AssemblyName>T4.Business</AssemblyName>
+    <RootNamespace>T4.Console</RootNamespace>
+    <AssemblyName>T4.Console</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -64,21 +67,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\GoogleTranslateService.cs" />
-    <Compile Include="Models\Commands\NotesCommand.cs" />
-    <Compile Include="Models\Commands\TranslateCommand.cs" />
-    <Compile Include="Models\CoreCommandFactory.cs" />
-    <Compile Include="Models\Interfaces\ICoreCommand.cs" />
-    <Compile Include="Models\Interfaces\ICoreCommandFactory.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test\TestSource.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Constants\" />
-    <Folder Include="Mocks\" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\T4.Business\T4.Business.csproj">
+      <Project>{F3F37E0F-3A39-4CBF-8A0C-51B1F72D807C}</Project>
+      <Name>T4.Business</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

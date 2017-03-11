@@ -75,3 +75,6 @@ C:\Users\DEV\Downloads\dotnet-docs-samples-master\speech\api\SpeechTest\bin\Debu
 C:\Users\DEV\Downloads\dotnet-docs-samples-master\speech\api\SpeechTest\obj\Debug\SpeechTest.csprojResolveAssemblyReference.cache
 C:\Users\DEV\Downloads\dotnet-docs-samples-master\speech\api\SpeechTest\obj\Debug\SpeechTest.dll
 C:\Users\DEV\Downloads\dotnet-docs-samples-master\speech\api\SpeechTest\obj\Debug\SpeechTest.pdb
+C:\Users\DEV\Source\Repos\T4\speech\SpeechTest\obj\Debug\SpeechTest.csprojResolveAssemblyReference.cache
+C:\Users\DEV\Source\Repos\T4\speech\SpeechTest\obj\Debug\SpeechTest.dll
+C:\Users\DEV\Source\Repos\T4\speech\SpeechTest\obj\Debug\SpeechTest.pdb

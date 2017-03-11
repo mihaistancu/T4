@@ -41,3 +41,6 @@ C:\Users\DEV\Downloads\dotnet-docs-samples-master\speech\api\TranscribeAsyncTest
 C:\Users\DEV\Downloads\dotnet-docs-samples-master\speech\api\TranscribeAsyncTest\obj\Debug\TranscribeAsyncTest.csprojResolveAssemblyReference.cache
 C:\Users\DEV\Downloads\dotnet-docs-samples-master\speech\api\TranscribeAsyncTest\obj\Debug\TranscribeAsyncTest.dll
 C:\Users\DEV\Downloads\dotnet-docs-samples-master\speech\api\TranscribeAsyncTest\obj\Debug\TranscribeAsyncTest.pdb
+C:\Users\DEV\Source\Repos\T4\speech\TranscribeAsyncTest\obj\Debug\TranscribeAsyncTest.csprojResolveAssemblyReference.cache
+C:\Users\DEV\Source\Repos\T4\speech\TranscribeAsyncTest\obj\Debug\TranscribeAsyncTest.dll
+C:\Users\DEV\Source\Repos\T4\speech\TranscribeAsyncTest\obj\Debug\TranscribeAsyncTest.pdb

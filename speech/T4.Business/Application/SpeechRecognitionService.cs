@@ -1,10 +1,15 @@
-﻿namespace T4.Business.Application
+﻿using System;
+
+namespace T4.Business.Application
 {
     public static class SpeechRecognitionService
     {
         public static string Listen()
         {
-            return GoogleCloudSamples.Recognize.StreamingMicRecognizeAsync().Result;
+
+            var result = GoogleCloudSamples.Recognize.StreamingMicRecognizeAsync().Result;
+            Console.WriteLine("Input: " + result);
+            return result;
         }
     }
 }

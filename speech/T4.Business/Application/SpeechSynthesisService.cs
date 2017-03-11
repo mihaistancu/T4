@@ -1,4 +1,5 @@
-﻿using System.Speech.Synthesis;
+﻿using System;
+using System.Speech.Synthesis;
 
 namespace T4.Business.Application
 {
@@ -11,6 +12,7 @@ namespace T4.Business.Application
                 synth.SetOutputToDefaultAudioDevice();
                 synth.Speak(text);
             }
+            Console.WriteLine("Output: " + text);
         }
     }
 }

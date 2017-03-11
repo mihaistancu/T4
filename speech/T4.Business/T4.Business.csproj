@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\CommandRepository.cs" />
     <Compile Include="Application\GoogleTranslateService.cs" />
     <Compile Include="Application\IntentService.cs" />
     <Compile Include="Models\Commands\NotesCommand.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Models\CoreCommandFactory.cs" />
     <Compile Include="Models\Interfaces\ICoreCommand.cs" />
     <Compile Include="Models\Interfaces\ICoreCommandFactory.cs" />
+	<Compile Include="Models\Interfaces\ICustomCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

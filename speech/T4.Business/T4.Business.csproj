@@ -64,12 +64,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\CommandRepository.cs" />
     <Compile Include="Application\GoogleTranslateService.cs" />
     <Compile Include="Models\Commands\NotesCommand.cs" />
     <Compile Include="Models\Commands\TranslateCommand.cs" />
     <Compile Include="Models\CoreCommandFactory.cs" />
     <Compile Include="Models\Interfaces\ICoreCommand.cs" />
     <Compile Include="Models\Interfaces\ICoreCommandFactory.cs" />
+    <Compile Include="Models\Interfaces\ICustomCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

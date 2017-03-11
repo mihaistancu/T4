@@ -14,7 +14,6 @@ namespace T4.Business.Application
         public static string Translate(string text, string targetLanguage)
         {
             var key = GetApiKey();
-            
             var service = new TranslateService(new BaseClientService.Initializer
             {
                 ApiKey = key
@@ -22,13 +21,7 @@ namespace T4.Business.Application
             var srcText = new[] { text };
             var request = service.Translations.List(srcText, targetLanguage);
             var response = request.Execute();
-            var translations = new List<string>();
-
-            foreach (var translation in response.Translations)
-            {
-                translations.Add(translation.TranslatedText);
-            }
-
+            var translations = response.Translations.Select(translation => translation.TranslatedText).ToList();
             var output = translations.FirstOrDefault();
             return output ?? "";
         }

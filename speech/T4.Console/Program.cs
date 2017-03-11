@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using T4.Business.Application;
+﻿using T4.Business.Application;
 
 namespace T4.Console
 {
@@ -11,9 +6,14 @@ namespace T4.Console
     {
         public static void Main(string[] args)
         {
-            var result = GoogleTranslateService.Translate("vegetable", "de");
-            System.Console.WriteLine(result);
+            var translation = GoogleTranslateService.Translate("vegetable", "de");
+            System.Console.WriteLine(translation);
+
+            var intent = IntentService.GetIntent("schedule a meeting with Mary on Saturday");
+            System.Console.WriteLine(intent.TopScoringIntent.Name);
+
             System.Console.ReadLine();
+
         }
     }
 }

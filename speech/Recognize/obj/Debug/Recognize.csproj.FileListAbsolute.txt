@@ -107,3 +107,4 @@ C:\Users\DEV\Source\Repos\T4\speech\Recognize\bin\Debug\NAudio.xml
 C:\Users\DEV\Source\Repos\T4\speech\Recognize\bin\Debug\Newtonsoft.Json.xml
 C:\Users\DEV\Source\Repos\T4\speech\Recognize\bin\Debug\System.Interactive.Async.xml
 C:\Users\DEV\Source\Repos\T4\speech\Recognize\bin\Debug\Zlib.Portable.xml
+C:\Users\DEV\Source\Repos\T4\speech\Recognize\obj\Debug\Recognize.csprojResolveAssemblyReference.cache

@@ -14,7 +14,7 @@ namespace T4.Business.Models
                 {
                     return new TranslateCommand();
                 }
-                case "notes":
+                case "note":
                 {
                     return new NotesCommand();
                 }

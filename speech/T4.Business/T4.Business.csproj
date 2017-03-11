@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\CommandDetector.cs" />
     <Compile Include="Application\CommandRepository.cs" />
     <Compile Include="Application\GoogleTranslateService.cs" />
     <Compile Include="Application\IntentService.cs" />

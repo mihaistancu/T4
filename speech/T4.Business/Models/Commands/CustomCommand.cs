@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using T4.Business.Application;
 using T4.Business.Models.Interfaces;
 
 namespace T4.Business.Models.Commands
@@ -29,21 +30,21 @@ namespace T4.Business.Models.Commands
         {
             return _subCommands;
         }
-
-
-       
+     
 
         public string GetIntent()
+        {
+            return _intent;
+        }
+
+        public void Execute()
         {
             IList<string> response = new List<string>();
             foreach (var item in GetSubCommands())
             {
-
                 response = item.Execute(response);
-
-
             }
-            return _intent;
+            SpeechSynthesisService.Speak("done");
         }
     }
 }

@@ -7,7 +7,7 @@ namespace T4.Business.Models.Interfaces
     public interface ICoreCommand
     {
         void SetParameters(IList<string> parameters);
-        void Validate(IList<string> parameters);
+        void Validate(IList<string> parameters, bool isLearning);
         IList<string> Execute(IList<string> parameters);
     }
 }

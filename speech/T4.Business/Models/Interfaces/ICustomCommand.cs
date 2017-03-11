@@ -8,5 +8,7 @@ namespace T4.Business.Models.Interfaces
         IList<ICoreCommand> GetSubCommands();
 
         string GetIntent();
+
+        void Execute();
     }
 }

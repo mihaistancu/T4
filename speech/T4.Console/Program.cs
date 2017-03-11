@@ -18,11 +18,16 @@ namespace T4.Console
             //RunCommand();
 
             //System.Console.ReadLine();          
-            var factory = new CoreCommandFactory();
-            var command = factory.Create("translation");
-            var response = command.Execute(new List<string>());
-            System.Console.WriteLine(response.ElementAt(0));
-            System.Console.ReadLine();
+            //var factory = new CoreCommandFactory();
+            //var command = factory.Create("notes");
+            //var response = command.Execute(new List<string>());
+            //System.Console.WriteLine(response.ElementAtOrDefault(0));
+            //System.Console.ReadLine();
+            var commandDetector = new CommandDetector();
+            while (true)
+            {
+                commandDetector.Detect();
+            }
         }
 
         private static void Translate()

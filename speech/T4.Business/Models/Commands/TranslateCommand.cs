@@ -12,19 +12,19 @@ namespace T4.Business.Models.Commands
         private string _text = "";
         public void SetParameters(IList<string> parameters)
         {
-            _sourceLanguage = parameters.ElementAtOrDefault(0);
-            _text = parameters.ElementAtOrDefault(1);
+            _text = string.IsNullOrEmpty(_text) ? parameters.ElementAtOrDefault(0) : _text;
+            _sourceLanguage = string.IsNullOrEmpty(_sourceLanguage) ? parameters.ElementAtOrDefault(1) : _sourceLanguage;
         }
 
-        public void Validate(IList<string> parameters)
+        public void Validate(IList<string> parameters, bool isLearning)
         {
-            if (_sourceLanguage == null)
+            if (string.IsNullOrEmpty(_sourceLanguage))
             {
                 SpeechSynthesisService.Speak("From what language do you want me to translate");
                 var lang = SpeechRecognitionService.Listen();
                 _sourceLanguage = Languages.GetLanguage(lang);
             }
-            if (_text == null)
+            if (string.IsNullOrEmpty(_text) && !isLearning)
             {
                 SpeechSynthesisService.Speak("What do you want me to translate");
                 _text = SpeechRecognitionService.Listen();
@@ -35,9 +35,9 @@ namespace T4.Business.Models.Commands
         {
             var result = new List<string>();
             SetParameters(parameters);
-            Validate(parameters);
+            Validate(parameters,false);
             var translatedWord = GoogleTranslateService.Translate(_text, _sourceLanguage);
-            result.Add(translatedWord);
+            result.Add(_text + " = " + translatedWord);
             return result;
         }
     }

@@ -19,13 +19,11 @@ namespace T4.Business.Application
         }
         public bool HasCustomCommand(string text)
         {
-            var intent = IntentService.GetIntent(text).TopScoringIntent.Name;
-            return _savedCommands.Any(i=>i.GetIntent() == intent);
+            return _savedCommands.Any(i=>i.GetText() == text);
         }
         public ICustomCommand GetCustomCommand(string text)
         {
-            var intent = IntentService.GetIntent(text).TopScoringIntent.Name;
-            return _savedCommands.FirstOrDefault(i => i.GetIntent() == intent);
+            return _savedCommands.FirstOrDefault(i => i.GetText() == text);
         }
 
         public void SaveCustomCommand(string text, IList<ICoreCommand> coreCommands, string intent)

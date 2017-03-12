@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using T4.Business.Application;
 using T4.Business.Models.Interfaces;
 
@@ -30,7 +28,7 @@ namespace T4.Business.Models.Commands
         {
             return _subCommands;
         }
-     
+
 
         public string GetIntent()
         {
@@ -43,6 +41,7 @@ namespace T4.Business.Models.Commands
             foreach (var item in GetSubCommands())
             {
                 response = item.Execute(response);
+                Console.WriteLine(response.FirstOrDefault());
             }
             SpeechSynthesisService.Speak("done");
         }

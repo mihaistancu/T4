@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using T4.Business.Application;
-using T4.Business.Constants;
 using T4.Business.Models.Interfaces;
 
 namespace T4.Business.Models.Commands
@@ -35,12 +33,14 @@ namespace T4.Business.Models.Commands
         public IList<string> Execute(IList<string> parameters)
         {
             SetParameters(parameters);
-            Validate(parameters,false);
+            Validate(parameters, false);
             SaveTo(_label, _text);
+            var result = new List<string>() { _text };
             _text = string.Empty;
-            return new List<string>();
+            return result;
         }
-        private void SaveTo(string label,string input)
+
+        private void SaveTo(string label, string input)
         {
             var path = string.Format(@"D:\{0}.txt", label);
 
